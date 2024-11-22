@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CakePop - Delicious Cakes</title>
+    <style>
+        
+        /* General Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: #ff4081; /* CakePop brand color */
+            color: #00000;
+        }
+
+        .header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav__menu {
+            display: none;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav__menu.active {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background-color: #ff4081;
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .nav__menu li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav__toggle {
+            font-size: 2rem;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('path/to/your-cake-image.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 15rem 20rem;
+            text-align: center;
+            background-attachment: fixed;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .order-button {
+            background-color: #ff4081; /* Button color */
+            color: white;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .order-button:hover {
+            background-color: #e73773; /* Hover color */
+        }
+
+        /* Cake Categories */
+        .categories {
+            display: grid;
+            gap: 2rem;
+            padding: 3rem 1rem;
+            text-align: center;
+            grid-template-columns: 1fr;
+        }
+
+        .category {
+            background-color: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .category img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .category h3 {
+            margin-top: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .category p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .category .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ff4081;
+        }
+
+        /* Order Now Section */
+        .order-now {
+            background-image:url("file:///C:/Users/ksant/OneDrive/Desktop/landingpage/cp2.webp");
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .order-now h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .order-form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .order-form select,
+        .order-form input {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .order-form button {
+            background-color: #ff4081;
+            color: black;
+            border: none;
+            padding: 1rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .order-form button:hover {
+            background-color: #e73773;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #ff4081;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        /* Media Queries */
+        @media (min-width: 768px) {
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer {
+                text-align: left;
+                padding: 3rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .category {
+                padding: 1rem;
+            }
+
+            .order-form {
+                max-width: 90%;
+            }
+
+            .footer {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">CakePop</div>
+        <div id="nav-toggle" class="nav__toggle">☰</div>
+        <nav>
+            <ul id="nav-menu" class="nav__menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About us</a></li>
+                <li><a href="#categories">Cakes</a></li>
+                <li><a href="#order">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <center>
+        <img src="file:///C:/Users/ksant/OneDrive/Desktop/landingpage/cp22.webp" width="400px" alt="logo">
+
+    </center>
+        <h1>Delicious Cakes for Every Occasion</h1>
+        <p>Indulge in our freshly baked cakes, made with love and care.</p>
+
+    </section>
+
+
+     <!-- About Section -->
+     <center>
+        <section id="about">
+
+            <h1>💕</h1>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    
+                    <section id="motto" style="display: flex; align-items: center; justify-content: center; padding: 4rem 2rem; background-color:black; color: #d23a6e;">
+                        <div style="text-align: center; max-width: 700px; padding: 2rem; border-radius: 10px; background-color: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+                            <h2 style="font-size: 2.5rem; font-weight: bold; color: #ff4081; margin-bottom: 1rem;">Our Motto</h2>
+                            <p style="font-size: 1.2rem; color: #333;">
+                                "Crafting Joy in Every Bite!" <br><br>
+                                At CakePop, we believe that every celebration deserves a perfect, delicious cake. Our passion is to create unforgettable flavors and beautiful designs, delivering happiness one slice at a time.
+                            </p>
+                        </div>
+                    </section>
+                </center>
+
+
+    <!-- Cake Categories -->
+    <section class="categories">
+        <div class="category">
+            <img src="file:///C:/Users/ksant/OneDrive/Desktop/landingpage/choccake.webp" alt="Chocolate Cake">
+            <h3>Chocolate Cake</h3>
+            <p>Rich and decadent chocolate cake.</p>
+            
+        </div>
+        <div class="category">
+            <img src="file:///C:/Users/ksant/OneDrive/Desktop/landingpage/van2.webp" alt="Vanilla Cake">
+            <h3>Vanilla Cake</h3>
+            <p>Classic vanilla flavor with a soft texture.</p>
+            
+        </div>
+        <div class="category">
+            <img src="file:///C:/Users/ksant/OneDrive/Desktop/landingpage/redvelcake.webp" alt="Red Velvet Cake">
+            <h3>Red Velvet Cake</h3>
+            <p>Perfectly moist with cream cheese frosting.</p>
+           
+        </div>
+        <div class="category">
+            <img src="file:///C:/Users/ksant/OneDrive/Desktop/landingpage/carrotcake.webp" alt="Carrot Cake">
+            <h3>Carrot Cake</h3>
+            <p>Deliciously spiced with a creamy frosting.</p>
+           
+        </div>
+        <div class="category">
+            <img src="file:///C:/Users/ksant/OneDrive/Desktop/landingpage/cheesecake.webp" alt="Cheesecake">
+            <h3>Cheesecake</h3>
+            <p>Rich and creamy cheesecake with a graham crust.</p>
+            
+        </div>
+        <div class="category">
+            <img src="file:///C:/Users/ksant/OneDrive/Desktop/landingpage/fruitcake.webp" alt="Fruit Cake">
+            <h3>Fruit Cake</h3>
+            <p>Loaded with delicious dried fruits and nuts.</p>
+           
+        </div>
+    </section>
+
+    <!-- Order Now Section -->
+    <section class="order-now">
+        <h2>Order Your Favorite Cake Now!</h2>
+        <form class="order-form" onsubmit="showThankYouMessage(event)">
+            <label for="cake-selection">Choose Your Cake:</label>
+            <select id="cake-selection" required>
+                <option value="Chocolate Cake">Chocolate Cake</option>
+                <option value="Vanilla Cake">Vanilla Cake</option>
+                <option value="Red Velvet Cake">Red Velvet Cake</option>
+                <option value="Carrot Cake">Carrot Cake</option>
+                <option value="Macaron Cake">Macaron Cake</option>
+                <option value="Cheese Cake">Cheese Cake</option>
+                <option value="Cup Cakes">Cup Cake</option>
+            </select>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" min="1" required>
+
+            
+            <label for="Address">Address:</label>
+            <input type="text" id="Address" required>
+            <button type="submit">Order Now</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 CakePop. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Toggle Mobile Navigation Menu
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Thank you message after form submission
+        function showThankYouMessage(event) {
+            event.preventDefault();
+            alert("Thank you for your order!");
+        }
+    </script>
+
+</body>
+</html>
